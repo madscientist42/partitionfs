@@ -1,0 +1,43 @@
+PROJECT(partitionfs)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+# Required software packages for this FUSE filesystem
+FIND_PACKAGE(PkgConfig REQUIRED)
+pkg_check_modules(FUSE REQUIRED fuse)
+pkg_check_modules(LIBPARTED REQUIRED libparted)
+# This is a bit of a kludge.  We rely on libparted MANDATING these...
+FIND_LIBRARY(LIBBLKID blkid)
+FIND_LIBRARY(LIBUUID uuid)
+
+# We're going to include the ability to make packaging for this to
+# make distribution teams happier with us...
+INCLUDE(InstallRequiredSystemLibraries)
+SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "partitionfs - FUSE filesystem to expose the partition map of a disk image file as loopback files")
+SET(CPACK_PACKAGE_VENDOR "Frank C. Earl <frank@earlconsult.com>")
+SET(CPACK_PACKAGE_CONTACT "frank@earlconsult.com")
+SET(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
+SET(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
+SET(CPACK_PACKAGE_VERSION_MAJOR "1")
+SET(CPACK_PACKAGE_VERSION_MINOR "0")
+SET(CPACK_PACKAGE_VERSION_PATCH "0")
+SET(CPACK_PACKAGE_INSTALL_DIRECTORY "CMake ${CMake_VERSION_MAJOR}.${CMake_VERSION_MINOR}")
+SET(CPACK_STRIP_FILES "bin/partitionfs")
+SET(CPACK_GENERATOR "DEB")
+INCLUDE(CPack)
+
+
+# Seems CMake can't grok the notion of squashing a list
+# into a string without a bit of help (Sigh...).
+function(JOIN VALUES GLUE OUTPUT)
+  string (REPLACE ";" "${GLUE}" _TMP_STR "${VALUES}")
+  set (${OUTPUT} "${_TMP_STR}" PARENT_SCOPE)
+endfunction()
+JOIN("${FUSE_CFLAGS}" " " PARTITIONFS_CFLAGS)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DFUSE_USE_VERSION=25 ${PARTITIONFS_CFLAGS}")
+
+# Specify our application
+ADD_EXECUTABLE(partitionfs partitionfs.c)
+TARGET_LINK_LIBRARIES(partitionfs ${FUSE_LIBRARIES} ${LIBPARTED_LIBRARIES} ${LIBBLKID} ${LIBUUID})
+INSTALL(PROGRAMS partitionfs DESTINATION bin)
+
+
