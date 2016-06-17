@@ -29,3 +29,9 @@ the large gamut of tools that understand working with a filesystem image file to
 the filesystems in those virtual image files.  Care should be exercised- the filesystem's got very 
 limited protections against multiple workers at the same time going and clobbering the whole disk
 image.  You should do one set of operations at a time for now.
+
+(Update 06-17-2016) There are now .deb and .rpm packagings for this project created from the 1.1.0
+version tag.  They _*should*_ install and run properly on anything from the Ubuntu 15.10 timeframe
+space and later- they may install and run on earlier, but that isn't as assured.  This is a pre-release
+in the sense that it's ready for "normal" use if you build it and here's some pre-builts for what's
+likely to be out there.
