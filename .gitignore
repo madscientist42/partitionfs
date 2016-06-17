@@ -1,3 +1,12 @@
+CMakeCache.txt
+Makefile
+CPackConfig.cmake
+CPackSourceConfig.cmake
+cmake_install.cmake
+install_manifest.txt
+/CMakeFiles
+/_CPack_Packages
+/.settings
 /.project
 /.cproject
 *~
