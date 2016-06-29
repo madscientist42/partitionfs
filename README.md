@@ -28,11 +28,11 @@ mountpoint, there will be a numbered file that comprises the partition in the im
 the large gamut of tools that understand working with a filesystem image file to format, mount, etc.
 the filesystems in those virtual image files.  Care should be exercised in use- _the filesystem's got very 
 limited protections against multiple workers at the same time going and clobbering the whole disk
-image_.  You should do _one_ set of operations at a time for now _(Meaning you should only be doing things
-against a single thread of execution in a single script file or manually in a single window)_.
-Biggest problem is libparted doesn't even contemplate this use and is not expecting to be leveraged
-in this manner- and it's not even close to threadsafe.  A re-work to handle a workqueue of sorts will
-mostly fix the problem and it's on the plans, but...
+image or similar nasty things_.  You should do _one_ set of operations at a time for now _(Meaning you 
+should only be doing things against a single thread of execution in a single script file or manually 
+in a single window)_.  Biggest problem is libparted doesn't even contemplate this use and is not 
+expecting to be leveraged in this manner- and it's not even close to threadsafe.  A re-work to handle 
+a workqueue of sorts will mostly fix the problem and it's on the plans, but...
 
 (Update 06-17-2016) There are now .deb and .rpm packagings for this project created from the 1.1.0
 version tag.  They _*should*_ install and run properly on anything from the Ubuntu 15.10 timeframe
