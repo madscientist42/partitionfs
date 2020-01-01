@@ -10,7 +10,7 @@ FIND_LIBRARY(LIBBLKID blkid)
 FIND_LIBRARY(LIBUUID uuid)
 
 # Establish current rules of engagement for FUSE...
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DFUSE_USE_VERSION=26 -D_FILE_OFFSET_BITS=64")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DFUSE_USE_VERSION=25 -D_FILE_OFFSET_BITS=64")
 
 # Specify our application
 ADD_EXECUTABLE(partitionfs partitionfs.c)
