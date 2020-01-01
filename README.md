@@ -16,9 +16,7 @@ Building is simple.  You need FUSE, libparted, libblkid, and libuuid installed a
 headers and libraries) configuration as well as CMake version 2.8 or later as prerequisites- and just 
 simply run "cmake ." on the git checkout directory followed by "make".
 
-To install, it's just "sudo make install" or if you want to use the CPack specification to make a
-.deb, it's just "make package" and then install the .deb accordingly.  The .deb will be for the 
-active architechture of the build host or cross-compile sandbox.
+To install, it's just "sudo make install".  
 
 It's been verified on Linux modern (as of 01/01/2020...) distributions and should just simply build.
 
