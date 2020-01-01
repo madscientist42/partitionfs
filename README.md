@@ -8,9 +8,10 @@ fairly useful method to provide access to a disk image file's partition scheme s
 do FUSE mounts of the filesystems in the partitons.  This allows things like no-root/sudo access 
 needed builds of disk images from start to finish when combined with other FUSE filesystems.  
 
-Currently, the code is set up to work solely with a MSDOS partition table.  Future releases are planned
-to support a larger range of partition types such as GPT- whatever libparted helps enable this filesystem
-to expose, it will eventually support.
+Previously, the filesystem was validated with just MSDOS partitioned images/devices.  As of 01/01/2020,
+it has also been validated against GPT partitioned images/devices.  It is known to work well with these
+and while not validated at this time, it should support any partition table system libparted is capable
+of working with at this time.
 
 Building is simple.  You need FUSE, libparted, libblkid, and libuuid installed as a developer (i.e. 
 headers and libraries) configuration as well as CMake version 2.8 or later as prerequisites- and just 
