@@ -34,8 +34,4 @@ in a single window)_.  Biggest problem is libparted doesn't even contemplate thi
 expecting to be leveraged in this manner- and it's not even close to threadsafe.  A re-work to handle 
 a workqueue of sorts will mostly fix the problem and it's on the plans, but...
 
-(Update 06-17-2016) There are now .deb and .rpm packagings for this project created from the 1.1.0
-version tag.  They _*should*_ install and run properly on anything from the Ubuntu 15.10 timeframe
-space and later- they may install and run on earlier, but that isn't as assured.  This is a pre-release
-in the sense that it's ready for "normal" use if you build it and here's some pre-builts for what's
-likely to be out there.
+(Update 01/01/2020) This has been validated against at least Ubuntu/Debian/Devuan as of this date.  It has also been validated against cross-compile/native/nativesdk for Yocto Warrior as of this date.  Packaging support has been removed.  To the best of my knowledge nobody has adopted this yet (yet...) for major distributions.  That's not a reflection of the tool, mind, just that it's not been noticed or the value thereof has been realized.  As such, it's going to be easier if we just simply got out of the way and let the distributions themselves do the proper packaging for their distro themselves.  There is Yocto recipes for this in meta-pha's layer as an example thereof. 
