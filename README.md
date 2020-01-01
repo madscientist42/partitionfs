@@ -20,7 +20,7 @@ To install, it's just "sudo make install" or if you want to use the CPack specif
 .deb, it's just "make package" and then install the .deb accordingly.  The .deb will be for the 
 active architechture of the build host or cross-compile sandbox.
 
-It's been verified on Linux modern (as of 11/26/2013...) distributions and should just simply build.
+It's been verified on Linux modern (as of 01/01/2020...) distributions and should just simply build.
 
 In the current version, there's no help- to use, just simply run partitionfs <image file> <mountpoint>
 where <image file> is the disk image file, and <mountpoint> is the directory to mount to.  In the 
