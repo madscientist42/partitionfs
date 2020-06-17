@@ -21,7 +21,7 @@ To install, it's just "sudo make install".
 
 It's been verified on Linux modern (as of 01/01/2020...) distributions and should just simply build.
 
-In the current version, there's no help- to use, just simply run partitionfs < image file > < mountpoint >
+In the current version, there's no help- to use, just simply run "partitionfs < image file > < mountpoint >"
 where < image file > is the name of the disk image file, and < mountpoint > is the directory to mount to.  In the 
 mountpoint, there will be a numbered file that comprises the partition in the image file.  You can use
 the large gamut of tools that understand working with a filesystem image file to format, mount, etc.
