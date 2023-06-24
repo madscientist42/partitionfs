@@ -13,3 +13,4 @@ install_manifest.txt
 partitionfs
 *.deb
 *.rpm
+/.vscode
